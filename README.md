@@ -1,0 +1,85 @@
+# Analog-Layout-Problems-and-remedies
+
+There are three steps we need to take into consideration before designing a fully fledged Analog or Digital IC chip.
+
+
+1)Electrical Design-The process where we built a circuit concept and then design a circuit and simulate it using various inputs
+
+
+2)Physical Design-Physical Implementation and LAYOUT with verifications like -DRC ERC LVS Antenna.
+
+
+3)Fabrication
+
+
+4)Testing and developement of the product.
+
+
+Our main point of talk here is Analog and Digital Layout ,Its problems and remedies.
+
+The first and basic problem which any layout designer face is IR drop.So what is it?Ans-The power supply in the chip needs to be uniformly distributed in the chip that is from VDD to VSS.If proper supply of the power is not there then repeaters or buffers are used(PHYSICAL DESIGN).So the question here is why would there be signal drop and the use of repeaters or buffers become so very important .The answer is that all the interconnects in layout of the chip are done via metals which has a fininte amount of resistance.When voltage is applied to this metal wires current start to flow through the metal layers and some voltage is dropped due to the metal wires.This drop is called IR drop.There are 2 types of IR drops 
+
+1)Static IR drops-It is the drop which occurs due to constant current being drawn from the power network
+
+2)Dynamic IR drops-The drop caused during switching.
+
+We should keep a tolerance or margin for our design so that if there is an IR drop our design should be compatible to that.
+
+What can IR drop cause?
+
+IR drop is a signal Integrity effect caused due to wire resistance and current drawn off VDD and VSS.If wire wire resistance is too high or if the current drawn is too hign then huge voltage drop will occur.Due to this unacceptable vltage drop the power supply voltage decreases and hence proper power is not reaching the cells.This results in noise suseptibility or poor performance.
+
+What should be done to minimise IR drop?
+
+The wire length should be as small as possible so that drop is less as length of the wire or in this case the metal layer is directly proportional to Resistance.
+
+The metal area of cross section should be as high as possible so that the resistance is less.
+
+The design should not be prone to high current events.
+
+The switching parasitics should be as low as possible so that the dynamic IR drops which happens during switching is less.
+
+
+The next dificulty which a layout engineer faces is Electromigration.What is it?
+
+Ans-If the current density is high there can be momentum transfer of electrons or metal ions that make up the lattice of the semiconductor thus resulting in the gradual displacement of the metal atoms causing open circuit (due to gaps is wires or vias) and short circuit (Due to hillocks in wires).So if I have a metal or a wire with a high current desnity then due to the shifting of the lattice atoms or ions the shape and size of the metals otr the wires at the interconnects can change causing gaps or hillock.
+
+Ways to reduce it.
+
+1)Widen the wire to reduce current density
+
+2)Reduce the frequency of the signal
+
+3)Lower the Vdd
+
+4)Wire length should be short
+
+5)Buffer size should be reduced.
+
+
+The third and a very important paramenter which is called the ground bound.Due to this ground bounce the Source will not acheive proper ground or the Drain will not be at VDD.Why? Advice (Keep the pic and the expalnation in 2 different tabs and see simultaneously for better understanding.)
+
+Ans-First of all we would check how does a CMOS work with respect to current and voltage wave form.The pic is shared as a file .When the input is low the PMOS is ON and NMOS is OFF.Then there is no current flow which is shown pic.1.Similarly when the input is high there is no current as well which is also shown in the same pic,but when the transition occurs i.e when both the transistors are in saturation.
+
+Hence if we check the wave forms of current and voltage then we see that when there is any transition of the transistors then there is a sudden flow of current.
+
+
+Now if we see the pic2. we would find that any chip has some internal circuitry which is interacting with the outside world with the help of bond wires.Now these bond wires are haveing inductances which would block that very sudden change in current which is caused during transition of the transistors.Now the basic concept of inductors is acc to Lenz's law that sudden change in current is blocked by Inductors in turn producing a Voltage accross it.Hence the Source will not be at proper ground and the Drain wont be at proper Vdd.
+
+What can be done to avoid this or practically reduce it?
+
+Ans-Connect a resistance in series with the inductor or the wire so that the extra potential formed is or dropped accross the resistance for proper specifications.
+
+Next comes another problem in Layout known as Matching.There are 2 types of mis matching 
+
+1)Random Mismatch
+
+2)Systematic Mismatch
+
+What is Random Mismatch ?
+
+Ans-The mismatch is caused due to process variations like doping or scattering of dopant atoms or defect sites.Remedy is to increase the device dimensions.Technically the random mismatch is inversely proportional to the square root of the device dimensions and the random mismatch cant be eliminated.
+
+What is systematic mismatch?
+
+Ans-This can arise due to imperfect balancing in the circuit.A mismatch in the output voltages of transistors generates a offset voltage which is practically undesired.
