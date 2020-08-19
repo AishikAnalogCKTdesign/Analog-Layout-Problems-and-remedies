@@ -83,3 +83,9 @@ Ans-The mismatch is caused due to process variations like doping or scattering o
 What is systematic mismatch?
 
 Ans-This can arise due to imperfect balancing in the circuit.A mismatch in the output voltages of transistors generates a offset voltage which is practically undesired.
+
+Another important error in IC due to layout is the Crosstalk.
+
+Before going into crosstalk I would discuss something about DRC which is Design Rule Check.In layout we need to maintain some distance between blocks like metal to substrate or Poly to substrate or Metal to Metal and even two Transistors as well to get zero DRC failure.Why?
+
+Ans-There is some thing which we term in Electronics circuit as Crosstalk.Now what is that? If 2 undesirable subcircuits interact then there will be signal integrity issues and the output will not be desirable.These occur due to decoupling capacitances as well as parasitic capacitances and if the DRC rules are not followed like Metal to metal distance is not maintained or if the poly to metal distance is not maintained etc then Crosstalks might occur hence making the output undesirable.
