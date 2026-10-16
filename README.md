@@ -17,7 +17,9 @@ There are three steps we need to take into consideration before designing a full
 
 Our main point of talk here is Analog and Digital Layout ,Its problems and remedies.
 
-The first and basic problem which any layout designer face is IR drop.So what is it?Ans-The power supply in the chip needs to be uniformly distributed in the chip that is from VDD to VSS.If proper supply of the power is not there then repeaters or buffers are used(PHYSICAL DESIGN).So the question here is why would there be signal drop and the use of repeaters or buffers become so very important .The answer is that all the interconnects in layout of the chip are done via metals which has a fininte amount of resistance.When voltage is applied to this metal wires current start to flow through the metal layers and some voltage is dropped due to the metal wires.This drop is called IR drop.There are 2 types of IR drops 
+The first and basic problem which any layout designer face is IR drop.So what is it?
+
+Ans-The power supply in the chip needs to be uniformly distributed in the chip that is from VDD to VSS.If proper supply of the power is not there then repeaters or buffers are used(PHYSICAL DESIGN).So the question here is why would there be signal drop and the use of repeaters or buffers become so very important .The answer is that all the interconnects in layout of the chip are done via metals which has a fininte amount of resistance.When voltage is applied to this metal wires current start to flow through the metal layers and some voltage is dropped due to the metal wires.This drop is called IR drop.There are 2 types of IR drops 
 
 1)Static IR drops-It is the drop which occurs due to constant current being drawn from the power network
 
